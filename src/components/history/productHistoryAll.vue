@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div v-if="labelLoad">
+		<div v-if="labelLoad" class="container">
 			<table class="bordered">
 				<tr>
 					<th class="center">№</th>

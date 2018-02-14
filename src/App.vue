@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-    <header class="font_tigra whide">
+    <header class="font_tigra whide hide-on-med-and-down">
       <nav class="navBar red darken-4 z-depth-0">
         <div class="logoBar valign-wrapper">
           <div class="logo"></div>
@@ -17,7 +17,7 @@
     </header>
 
     <div class="row container_hight">
-      <aside class="col s3 userPanel" v-if="user.id">
+      <aside class="col hide-on-med-and-down l3 userPanel" v-if="user.id">
         <div class="z-depth-3 tabsMy">
          
           <h5 class="center userHeader">Пользователь <i class="material-icons prefix">account_circle</i></h5>  
@@ -48,7 +48,7 @@
 
         <find-product></find-product>
       </aside>
-      <section class="col s9 content" :class="{s12:!user.id}">
+      <section class="col s12 m12 l9 content" :class="{s12:!user.id}">
         <router-view/>
       </section>
     </div>
