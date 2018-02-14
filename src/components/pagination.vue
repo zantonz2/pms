@@ -41,8 +41,10 @@
 				if($(ev.target).parent().parent().hasClass("disabled")) return;
 				if (operand) {
 					this.firstPage+=this.lengthPagination+1;
+					if (this.firstPage>this.pages) this.firstPage=this.pages;
 				} else {
 					this.firstPage-=this.lengthPagination+1;
+					if (this.firstPage<1) this.firstPage=1;
 				};
 				this.currentPage=this.firstPage-1;
 			}

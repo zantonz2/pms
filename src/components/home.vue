@@ -54,7 +54,7 @@
 					<td>{{item.history[item.history.length-1].timestamp | myDate}}</td>
 				</tr>
 			</table>
-			<pagination @currentPageChange="currentPageChange" :list="filtredProduct" :maxRows="10"></pagination>
+			<pagination @currentPageChange="currentPageChange" :list="filtredProduct" :maxRows="9"></pagination>
 		</div>
 		<div v-show="!LabelLoad">
 			<preload></preload>
