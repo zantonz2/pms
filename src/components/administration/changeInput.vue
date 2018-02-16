@@ -78,6 +78,7 @@
 		width: 0;
 		height: 0;
 		margin-top:-4px;
+		display: none;
 	}
 
 	input.name:focus ~.edit, .edit:focus, .edit:active{

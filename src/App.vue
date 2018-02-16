@@ -1,8 +1,8 @@
 <template>
   <div id="app">
 
-    <header class="font_tigra whide hide-on-med-and-down">
-      <nav class="navBar red darken-4 z-depth-0">
+    <header class="font_tigra whide">
+      <nav class="navBar red darken-4 z-depth-2">
         <div class="logoBar valign-wrapper">
           <div class="logo"></div>
           <span class="logo__moto valign">"Automation Systems for Mining"</span>
@@ -15,9 +15,9 @@
         </ul>
       </nav>
     </header>
-
+    <div class="devider z-depth-3"></div>
     <div class="row container_hight">
-      <aside class="col hide-on-med-and-down l3 userPanel" v-if="user.id">
+      <aside class="col s3 userPanel" v-if="user.id">
         <div class="z-depth-3 tabsMy">
          
           <h5 class="center userHeader">Пользователь <i class="material-icons prefix">account_circle</i></h5>  
@@ -36,11 +36,6 @@
               Выполнено {{totalAction}} действий 
               </td>
             </tr>
-            <!--tr>
-              <td colspan="2">
-              Последний вход: {{expireDate | myDate}} 
-              </td>
-            </tr-->
           </table>
           </div>
         </div>
@@ -48,7 +43,7 @@
 
         <find-product></find-product>
       </aside>
-      <section class="col s12 m12 l9 content" :class="{s12:!user.id}">
+      <section class="col s9 content">
         <router-view/>
       </section>
     </div>
@@ -62,9 +57,6 @@
             <span class="text_error"> {{modal.error}} </span>
             <a class="modal-action modal-close modalSuccess__button waves-effect waves-light red-text text-darken-4" ><i class="material-icons">close</i></a>
         </div>
-        <!--div class="modal-footer">
-            <a class="modal-action modal-close modalError__button btn-floating btn-large waves-effect waves-light red darken-4 pulse" ><i class="material-icons">done</i></a>
-         </div-->
     </div>
 
     <!-- Modal Success -->
@@ -144,10 +136,18 @@
 </script>
 
 <style type="text/css">
-
-table .select-wrapper input.select-dropdown{
-  text-overflow: ellipsis;
-}
+  
+  .devider{
+    width: 0.3rem;
+    background-color: #b71c1c;
+    position: absolute;
+    left:25%;
+    top:4rem;
+    height: calc(100% - 4rem); 
+  }
+  table .select-wrapper input.select-dropdown{
+    text-overflow: ellipsis;
+  }
   .router-link-active {
     background-color: rgba(0, 0, 0, 0.1);
   }
@@ -186,19 +186,9 @@ table .select-wrapper input.select-dropdown{
     display: block;
     width: 100%;
     height: 1.5rem;
-    //border:1px solid #616161;
     border-radius: 0.75rem;
     z-index:-20;
     background-color: #eeeeee;
-    /*Красивая кнопочка получилась*/
-    /*background: rgba(183,28,28,1);
-    background: -moz-linear-gradient(top, rgba(183,28,28,1) 0%, rgba(255,235,238,1) 2%, rgba(250,215,218,1) 5%, rgba(211,47,47,1) 30%, rgba(183,28,28,1) 70%, rgba(247,213,216,1) 95%, rgba(255,235,238,1) 98%, rgba(183,28,28,1) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(183,28,28,1)), color-stop(2%, rgba(255,235,238,1)), color-stop(5%, rgba(250,215,218,1)), color-stop(30%, rgba(211,47,47,1)), color-stop(70%, rgba(183,28,28,1)), color-stop(95%, rgba(247,213,216,1)), color-stop(98%, rgba(255,235,238,1)), color-stop(100%, rgba(183,28,28,1)));
-    background: -webkit-linear-gradient(top, rgba(183,28,28,1) 0%, rgba(255,235,238,1) 2%, rgba(250,215,218,1) 5%, rgba(211,47,47,1) 30%, rgba(183,28,28,1) 70%, rgba(247,213,216,1) 95%, rgba(255,235,238,1) 98%, rgba(183,28,28,1) 100%);
-    background: -o-linear-gradient(top, rgba(183,28,28,1) 0%, rgba(255,235,238,1) 2%, rgba(250,215,218,1) 5%, rgba(211,47,47,1) 30%, rgba(183,28,28,1) 70%, rgba(247,213,216,1) 95%, rgba(255,235,238,1) 98%, rgba(183,28,28,1) 100%);
-    background: -ms-linear-gradient(top, rgba(183,28,28,1) 0%, rgba(255,235,238,1) 2%, rgba(250,215,218,1) 5%, rgba(211,47,47,1) 30%, rgba(183,28,28,1) 70%, rgba(247,213,216,1) 95%, rgba(255,235,238,1) 98%, rgba(183,28,28,1) 100%);
-    background: linear-gradient(to bottom, rgba(183,28,28,1) 0%, rgba(255,235,238,1) 2%, rgba(250,215,218,1) 5%, rgba(211,47,47,1) 30%, rgba(183,28,28,1) 70%, rgba(247,213,216,1) 95%, rgba(255,235,238,1) 98%, rgba(183,28,28,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b71c1c', endColorstr='#b71c1c', GradientType=0 );*/
     webkit-box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);
       box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);
   }
@@ -238,5 +228,13 @@ table .select-wrapper input.select-dropdown{
     margin: 0;
     padding-left: -1.6rem;
     width: 1.5rem;
+  }
+
+.border {
+    height: 100%;
+    border: 0.3rem solid #b71c1c;
+  }
+  .noBorder {
+    border: none;
   }
 </style>

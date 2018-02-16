@@ -1,5 +1,5 @@
 <template>
-	<div class="col s6 offset-s3">
+	<div class="col s6 offset-s3 m5 offset-m5">
 		<form action="" >
 	        <div class="input-field row">
 	            <i class="material-icons prefix">account_circle</i>
@@ -61,7 +61,16 @@
 
 		created:function(){
 			if (this.$store.state.user.id && this.$store.state.user.password && this.$store.state.user.token) {this.send()};
-			//if (this.$store.state.user.history!='false' && this.$store.state.user.id) this.$router.push("/history/user/"+this.$store.state.user.id);
+		},
+
+		mounted:function(){
+			$(this.$parent.$el).addClass('border');
+			$(this.$parent.$el).find('.content').addClass('noBorder');
+		},
+
+		beforeDestroy:function(){
+			$(this.$parent.$el).removeClass('border');
+			$(this.$parent.$el).find('.content').removeClass('noBorder');
 		}
 	}
 </script>

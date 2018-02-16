@@ -204,6 +204,7 @@ import Vue from 'vue'
 			    	$('.datepicker.start').pickadate(Object.assign(option,{
 				    		onClose:function(){
 				 				if ($('.datepicker.start').pickadate('picker').get()) {
+				 					if ($('.datepicker.start').pickadate('picker').get()===filter.dateProduct.start) return;
 				 					filter.dateProduct.start=$('.datepicker.start').pickadate('picker').get();
 				 					alias.$store.commit('filter', filter);
 				 					$('.tooltipped.start').attr('data-tooltip',filter.dateProduct.start).tooltip();
@@ -220,6 +221,7 @@ import Vue from 'vue'
 			 		
 			 		$('.datepicker.end').pickadate(Object.assign(option,{
 				    		onClose:function(){
+				    			if ($('.datepicker.end').pickadate('picker').get()===filter.dateProduct.end) return;
 				 				filter.dateProduct.end=$('.datepicker.end').pickadate('picker').get();
 			 					alias.$store.commit('filter', filter);
 		    					$('.datepicker.end').pickadate('picker').set('select',filter.dateProduct.end);
@@ -253,14 +255,14 @@ import Vue from 'vue'
 					}
 
 					var value=$(this).val()
-					console.log(value,'value');
+					//console.log(value,'value');
 					for (var i = 0; i < value.length; i++) {
 						filter[keySelect][value[i]]=true;
 					}
 					
 				alias.$store.commit('filter', filter);
 				alias.filtredProduct=alias.filtred();
-				console.log('change', alias.filtredProduct);
+				//console.log('change', alias.filtredProduct);
 			});
 		},
 		updated:function(){
